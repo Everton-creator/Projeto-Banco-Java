@@ -23,19 +23,32 @@ public class Main {
                 case 2:
                     System.out.println("---Saque---\nSaldo Disponível: R$ "+ saldo +"\nQual valor deseja sacar?");
                     valor = leitura.nextDouble();
-                    saldo = saldo - valor;
-                    System.out.println("Saldo Disponível Atualizado: R$" + saldo);
-                    System.out.println("---Deseja fazer mais alguma operação?---\n1-Sim\n2-Não\n:");
-                    continuar = leitura.nextInt();
-                    break;
+                    if(valor<saldo){
+                        saldo = saldo - valor;
+                        System.out.println("Saldo Disponível Atualizado: R$" + saldo);
+                        System.out.println("---Deseja fazer mais alguma operação?---\n1-Sim\n2-Não\n:");
+                        continuar = leitura.nextInt();
+                        break;
+                    } else {
+                        System.out.println("Valor Inválido");
+                        System.out.println("---Deseja fazer mais alguma operação?---\n1-Sim\n2-Não\n:");
+                        continuar = leitura.nextInt();
+                        break;}
                 case 3:
                     System.out.println("---Depósito---\nSaldo Disponível: R$ "+ saldo +"\nQual valor deseja depositar?");
                     valor = leitura.nextDouble();
-                    saldo = saldo + valor;
-                    System.out.println("Saldo Disponível Atualizado: R$" + saldo);
-                    System.out.println("---Deseja fazer mais alguma operação?---\n1-Sim\n2-Não\n:");
-                    continuar = leitura.nextInt();
-                    break;
+                    if(valor>0) {
+                        saldo = saldo + valor;
+                        System.out.println("Saldo Disponível Atualizado: R$" + saldo);
+                        System.out.println("---Deseja fazer mais alguma operação?---\n1-Sim\n2-Não\n:");
+                        continuar = leitura.nextInt();
+                        break;
+                    }else {
+                        System.out.println("Valor Inválido");
+                        System.out.println("---Deseja fazer mais alguma operação?---\n1-Sim\n2-Não\n:");
+                        continuar = leitura.nextInt();
+                        break;
+                    }
                 case 4:
                     System.out.println("Confirma que deseja sair?\n1-Não\n2-Sim");
                     continuar = leitura.nextInt();
